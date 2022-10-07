@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: rgb(220, 220, 220);
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  filter: drop-shadow(5px 5px 5px rgb(120, 255, 0));
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  vertical-align: center;
+  justify-content: space-around;
+  column-gap: 5px;
+  row-gap: 5px;
+  padding: 20px;
+}
+
+.hero-thumb {
+  display: grid;
+  justify-content: center;
+  border: 1px solid rgb(160, 160, 160);
+  min-width: 120px;
+  padding: 10px;
+ }
+
+.thumb-img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.hero-thumb:hover {
+  background-color: rgba(160, 160, 160, .6);
+}
+
+.hero-thumb:hover .hero-name {
+  color: rgb(255, 0, 0);
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+.hero-name {
+  text-align: center;
+  color: rgb(160, 160, 160);
+}
+
+.hero-thumb a {
+  text-decoration: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transition: .5s;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.overlay:target {
+  background-color: rgba(0, 0, 0, .7);
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+}
+
+.full-img {
+  max-height: 100%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .7);
+}
+
+.overlay:target .full-img {
+  animation: zoomDanFade 1s;
+}
+
+.close {
+  font-size: 14px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 8px;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+}
+
+
+/*next & prev*/
+.next {
+  position: absolute;  
+  background-image: url(../img/full/next.png);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999999px;
+  top: 40%;
+  margin-left: 50px;
+}
+
+.prev {
+  position: absolute;  
+  background-image: url(../img/full/prev.png);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-indent: -999999px;
+  top: 40%;
+  margin-left: -100px;
+}
+
+
+/*animasi*/
+@keyframes zoomDanFade {
+  0% {
+    transform: scale (0);
+    opacity: 0;
+  }  
+  100% {
+    transform: scale (1);
+    opacity: 1;
+  }
+}
+
+
+/*media query*/
+@media (max-width: 600px) {
+  .container {
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 850px) {
+  .container {
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+} 
